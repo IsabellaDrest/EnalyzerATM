@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import "./Reset.css";
+import "./Home.css";
+import backArrow from "./back-arrow-icon.png"
 
 export class Home extends Component {
   state = {
@@ -21,35 +24,34 @@ export class Home extends Component {
  
 
   render() {
-    const { arry } = this.state;
     return (
-    <div>
+    <div className="container">
         <h1> Select Amount</h1>
         <div>
-          <input id="my_field" value={"£ " + this.state.value} />
+          <input className="input" value={"£ " + this.state.value} />
         </div>
         <div>
           <div>
-          <button onClick={() => this.addDigits(1)}>1</button>
-          <button onClick={() => this.addDigits(2)}>2</button>
-          <button onClick={() => this.addDigits(3)}>3</button>
+          <button className="numberButtons" onClick={() => this.addDigits(1)}>1</button>
+          <button className="numberButtons" onClick={() => this.addDigits(2)}>2</button>
+          <button className="numberButtons" onClick={() => this.addDigits(3)}>3</button>
           </div>
           <div>
-          <button onClick={() => this.addDigits(4)}>4</button>
-          <button onClick={() => this.addDigits(5)}>5</button>
-          <button onClick={() => this.addDigits(6)}>6</button>
+          <button className="numberButtons" onClick={() => this.addDigits(4)}>4</button>
+          <button className="numberButtons" onClick={() => this.addDigits(5)}>5</button>
+          <button className="numberButtons" onClick={() => this.addDigits(6)}>6</button>
           </div>
           <div>
-          <button onClick={() => this.addDigits(7)}>7</button>
-          <button onClick={() => this.addDigits(8)}>8</button>
-          <button onClick={() => this.addDigits(9)}>9</button>
+          <button className="numberButtons" onClick={() => this.addDigits(7)}>7</button>
+          <button className="numberButtons" onClick={() => this.addDigits(8)}>8</button>
+          <button className="numberButtons" onClick={() => this.addDigits(9)}>9</button>
           </div>
           <div>
-          <button onClick={this.onClickDelete}>Delete</button>
-          <button onClick={() => this.addDigits(0)}>0</button>
+          <button className="numberButtons" onClick={this.onClickDelete}><img src={backArrow}/></button>
+          <button className="numberButtons"onClick={() => this.addDigits(0)}>0</button>
           </div>
         </div>
-            <input type="submit" value="Submit" />
+            <button className="submitButton">Submit</button>
      </div>
 
      
