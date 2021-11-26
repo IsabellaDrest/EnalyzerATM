@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import "./Reset.css";
 import "./Home.css";
 import backArrow from "./back-arrow-icon.png"
+import note from "./500-bill.png"
+import coin from "./coin.png"
 
 export class Home extends Component {
   state = {
-    value: "" 
+    value: "", 
+    array: []
   }
   
 
@@ -21,11 +24,26 @@ export class Home extends Component {
     });
   }
 
+  calculator(value) {
+    const divisible = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+    var outcomeArray = [];
+    var total = value;
+
+      divisible.map(c => {
+        outcomeArray.push(Math.floor(total / c));
+        total = total % c;
+      });
+      this.setState({
+        array : outcomeArray
+      });
+  }
+
  
 
   render() {
     return (
     <div className="container">
+      <div className="inputBox">
         <h1> Select Amount</h1>
         <div>
           <input className="input" value={"£ " + this.state.value} />
@@ -51,12 +69,63 @@ export class Home extends Component {
           <button className="numberButtons"onClick={() => this.addDigits(0)}>0</button>
           </div>
         </div>
-            <button className="submitButton">Submit</button>
+      
+            <button className="submitButton" onClick={() => this.calculator(this.state.value)}>Submit</button>
+      
+       </div>
+
+
+            <div className="allMoney">
+              <div className="moneyBox">
+                <img src={note} className="noteImage"/>
+              <p>{this.state.array[1]} x 500</p>
+              </div>
+              <div className="moneyBox">
+              <img src={note} className="noteImage"/>
+              <p>{this.state.array[2]} x 200</p>
+              </div>
+              <div className="moneyBox">
+              <img src={note} className="noteImage"/> 
+              <p>{this.state.array[3]} x 100</p>
+              </div>
+              <div className="moneyBox">
+                
+              <p>{this.state.array[4]} x 50</p>
+              </div>
+              <div className="moneyBox">
+              <img src={coin} className="noteImage"/> 
+              <p>{this.state.array[5]} x 20</p> 
+              </div>
+              <div className="moneyBox">
+              <img src={coin} className="noteImage"/> 
+              <p>{this.state.array[6]} x 10</p>{" "}
+              </div>
+              <div className="moneyBox">
+              <img src={coin} className="noteImage"/> 
+              <p>{this.state.array[7]} x 5</p> 
+              </div>
+              <div className="moneyBox">
+              <img src={coin} className="noteImage"/> 
+              <p>{this.state.array[8]} x 2</p>{" "}
+              </div>
+              <div className="moneyBox">
+              <img src={coin} className="noteImage"/> 
+              <p>{this.state.array[9]} x 1</p>
+              </div>
+          </div>
      </div>
 
      
     );
    
 
+  }
+}
+
+export class TotalOutcome extends Component {
+  render(){
+    return (
+      <h1> This is a test</h1>
+    )
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 
-export class TotalOutcome extends Component {
+export class TestOutcome extends Component {
   state = {
     value: 0,
     arry: []
