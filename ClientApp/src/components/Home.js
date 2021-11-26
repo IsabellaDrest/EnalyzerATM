@@ -48,8 +48,8 @@ export class Home extends Component {
         <div>
           <input className="input" value={"£ " + this.state.value} />
         </div>
-        <div>
-          <div>
+        <div className="inputBox">
+          <div className="inpuBox">
           <button className="numberButtons" onClick={() => this.addDigits(1)}>1</button>
           <button className="numberButtons" onClick={() => this.addDigits(2)}>2</button>
           <button className="numberButtons" onClick={() => this.addDigits(3)}>3</button>
@@ -65,7 +65,7 @@ export class Home extends Component {
           <button className="numberButtons" onClick={() => this.addDigits(9)}>9</button>
           </div>
           <div>
-          <button className="numberButtons" onClick={this.onClickDelete}><img src={backArrow}/></button>
+          <button className="numberButtons" onClick={this.onClickDelete}><img className="backArrow"src={backArrow}/></button>
           <button className="numberButtons"onClick={() => this.addDigits(0)}>0</button>
           </div>
         </div>
@@ -89,7 +89,7 @@ export class Home extends Component {
               <p>{this.state.array[3]} x 100</p>
               </div>
               <div className="moneyBox">
-                
+              <img src={note} className="noteImage"/> 
               <p>{this.state.array[4]} x 50</p>
               </div>
               <div className="moneyBox">
@@ -113,6 +113,8 @@ export class Home extends Component {
               <p>{this.state.array[9]} x 1</p>
               </div>
           </div>
+          <p className="bottomText">Thank you for using <br/> Enalyzer ATM</p>
+
      </div>
 
      
