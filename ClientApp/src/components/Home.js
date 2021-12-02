@@ -12,19 +12,21 @@ export class Home extends Component {
     isClicked: false
   };
 
-
+//Functoin that sets the value
   addDigits(digit) {
     this.setState({
       value: this.state.value + digit
     });
   }
 
+//Function that deletes digits from the input vale
   onClickDelete = () => {
     this.setState({
       value: this.state.value.slice(0,- 1)
     });
   }
 
+  //Funtion to calculate the amount of money that sould be given
   calculator(value) {
     const divisible = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
     var outcomeArray = [];
